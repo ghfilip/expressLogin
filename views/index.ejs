@@ -1,0 +1,30 @@
+<% if (messages.success) { %>
+<div class="flash flash-success"><%= messages.success %></div>
+<% } %>
+
+<h1>My Dashboard</h1>
+<% if (Object.keys(data).length !== 0) { %>
+<h3>Welcome <%= data.firstname %> <%= data.lastname %></h3>
+<% } %>
+
+<div class="api"> Loading api.. </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script>
+    var url = '';
+    <% if (Object.keys(data).length !== 0) { %>
+        <% if (data.level == 1) { %>
+            url = '//api.openweathermap.org/data/2.5/weather?q=London&APPID=c117d194f9be2b1182f3d00a0750e4cb';
+        <% } else { %>
+            url = '//api.openweathermap.org/data/2.5/weather?q=Sibiu&APPID=c117d194f9be2b1182f3d00a0750e4cb';
+        <% } %>
+    <% } %>
+
+    $(document).ready(function() {
+      $.get(url, function (data) {
+        $(".api").html('Weather in '+ data.name + ': ' +data.weather[0].main + '<br />Temperature: '+ data.main.temp + ' F' + '<br />Clouds coverage: '+ data.clouds.all + '%');
+      });
+    });
+</script>
+
