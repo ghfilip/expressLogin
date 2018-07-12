@@ -4,6 +4,15 @@ Node.js and express for a simple login
 requirements:
 
 - postgres DB
+run:
+CREATE TABLE users (
+  id uuid primary key,
+  email varchar NOT NULL,
+  pass varchar NOT NULL,
+  firstname varchar NOT NULL,
+  lastname varchar NOT NULL,
+  level int NOT NULL
+);
 
 install:
 
