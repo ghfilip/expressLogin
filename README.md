@@ -23,3 +23,8 @@ initial db setup:
 normal run:
 
 - http://localhost:3000
+
+sessions will expire in 1 minute.
+users:
+- gh_filip@yahoo.com with pass test
+- pop_ion@yahoo.com with pass test
